@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dijkstra Micromouse Visualization</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+		<script src="processing.js"></script>
+		<script src="dijkstra_viz.js"></script>
+	</head>
+	<body>
+		<div class="container">
+				<nav class="navbar navbar-default">
+						<div class="container-fluid">
+								<div class="navbar-header">
+										<a class="navbar-brand" href="#">Micromouse Dijkstra Visualization</a>
+								</div>
+								<div id="navbar" class="navbar-collapse">
+								</div>
+						</div><!--/.nav-collapse -->
+				</nav><!--/.container-fluid -->
+				<div class="jumbotron">
+						<div class="container">
+									<div class="row">
+											<p>Left click sets start point, right click sets end point. Left click start point again to reset player. Click on the blank spaces between tiles to turn them into walls.</p>
+									</div>
+									<div class="panel text-center">
+											<div class="panel-body">
+													<canvas class="center-block" data-processing-sources="dijkstra_viz.pde"></canvas>
+											</div>
+											<div id="ctrlpnl" class="center-block">
+													<div class = "row">
+															<label>Maze Size </label>
+															<label for="xsize">x: </label>
+															<select id="xsize">
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	<option value="11">11</option>
+																	<option value="12">12</option>
+																	<option value="13">13</option>
+																	<option value="14">14</option>
+																	<option value="15">15</option>
+																	<option value="16">16</option>
+															</select>
+															<label for="ysize">y: </label>
+															<select id="ysize">
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	<option value="11">11</option>
+																	<option value="12">12</option>
+																	<option value="13">13</option>
+																	<option value="14">14</option>
+																	<option value="15">15</option>
+																	<option value="16">16</option>
+															</select>
+															<button id="start" class="btn btn-default" value="reset">Reset</button>
+													</div>
+											</div>
+									</div>
+									<div class="row">
+											<p>
+												The corner of each tile displays the distance from the player block to the end block. Here I use the term "player" loosely. (You don't really have much control over your character.)
+												The maze solving algorithm is based on Dijkstra's algorithm. To learn more you can visit its <a href ="http://en.wikipedia.org/wiki/Dijkstra's_algorithm">wikipedia page</a>. <br>
+												Note that the displayed distance is sometimes infinity despite being a viable path for the player (i.e. being not blocked off). This is because infinity is the default initialized value for each block. To maximize efficiency the algorithm stops as soon as it finds the end block. All other blocks are thus ignored and left at their default values.
+											</p>
+									</div>
+						</div>
+				</div>
+		</div>
+	</body>
+</html>
